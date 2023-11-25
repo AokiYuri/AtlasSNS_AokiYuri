@@ -31,10 +31,13 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
+Route::post('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
+Route::post('/profile','UsersController@profile');
 
 Route::get('/search','UsersController@index');
+Route::post('/search','UsersController@index');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
