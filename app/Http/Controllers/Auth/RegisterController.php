@@ -53,6 +53,7 @@ class RegisterController extends Controller
             $mail = $request->input('mail');
             $password = $request->input('password');
 
+            // ここの['username']達はカラム名 //
             User::create([
                 'username' => $username,
                 'mail' => $mail,
@@ -60,8 +61,8 @@ class RegisterController extends Controller
             ]);
 
             // sessionを使ってユーザ名を表示させる //
-            $user = $request->session()->put('username', $username);
-            return redirect('added')->eith('username', $user);
+            $user = $request->get('username', $username);
+            return redirect('added')->with('username', $user);
         }
         return view('auth.register');
     }

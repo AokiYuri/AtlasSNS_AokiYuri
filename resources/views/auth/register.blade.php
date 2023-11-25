@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => '/added']) !!}
+{!! Form::open(['url' => '/register']) !!}
 
 <h2>新規ユーザー登録</h2>
 
@@ -19,6 +19,11 @@
 {{ Form::text('password_confirmation',null,['class' => 'input']) }}
 
 {{ Form::submit('登録') }}
+
+<!-- バリデーションのエラー表示 -->
+@foreach ($errors->all() as $error)
+  <li>{{$error}}</li>
+@endforeach
 
 <p><a href="/login">ログイン画面へ戻る</a></p>
 
