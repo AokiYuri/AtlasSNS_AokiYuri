@@ -13,9 +13,37 @@ header {
     display: flex;
 }
 
-#accordion-title {
-    display: flex;
+.accordion-container {
+    margin: 0 0 0 auto;
+    color: #fff;
 }
+
+.accordion-content {
+    display: none;
+}
+
+/* 矢印 */
+.arrow {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #fff;
+    /* 矢印の色 */
+    margin: 20px;
+    /* 適宜調整 */
+}
+
+.open .arrow {
+    position: relative;
+    top: 40px;
+    /* 適宜調整 */
+    border-bottom: none;
+    border-top: 20px solid #fff;
+}
+
+
 
 /* main content */
 #row {
