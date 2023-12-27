@@ -44,3 +44,9 @@ Route::post('/search','UsersController@search');
 
 Route::get('/follow-list','PostsController@index')->middleware('auth');
 Route::get('/follower-list','PostsController@index')->middleware('auth');
+
+//deleteメソッドを使用するためのルーティング
+Route::get('/top/{id}/delete', 'PostsController@delete');
+
+//updateメソッドを使用するためのルーティング
+Route::get('/top/{posts}/update', 'PostsController@update');
