@@ -49,4 +49,4 @@ Route::get('/follower-list','PostsController@index')->middleware('auth');
 Route::get('/top/{id}/delete', 'PostsController@delete');
 
 //updateメソッドを使用するためのルーティング
-Route::get('/top/{posts}/update', 'PostsController@update');
+Route::post('/top/update', 'PostsController@update');

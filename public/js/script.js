@@ -1,6 +1,7 @@
-$(function () { // if document is ready
-  alert('hello world')
-});
+//JavaScriptが動いているかの確認するためのコマンド
+//$(function ()
+//  alert('hello world')
+//});
 
 $(function () {
   // 編集ボタン(class="js-modal-open")が押されたら発火

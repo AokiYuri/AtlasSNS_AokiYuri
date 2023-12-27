@@ -18,24 +18,25 @@
         <p class="post">{{ $post->post }}</p>
         <div class="content">
         <!-- 投稿の編集ボタン -->
-        <p class="button"><a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="/images/edit.png" width="50" height="50" alt="編集ボタン"></a>
+        <p class="button"><a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="/images/edit.png" width="50" height="50" alt="編集ボタン"></a></p>
     </div>
-        <!-- モーダルの中身 -->
+
+        <p class="button"><a class="btn-danger" href="/top/{{$post->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="/images/trash-h.png" width="50" height="50" alt="削除ボタン"></a></p>
+    </div>
+    @endforeach
+            <!-- モーダルの中身 -->
         <div class="modal js-modal">
             <div class="modal__bg js-modal-close"></div>
             <div class="modal__content">
-                <form action="" method="">
-                    <textarea name="" class="modal_post"></textarea>
-                    <input type="hidden" name="" class="modal_id" value="">
+                <form action="/top/update" method="post">
+                    <textarea name="post" class="modal_post"></textarea>
+                    <input type="hidden" name="id" class="modal_id" value="">
                     <input type="submit" value="更新">
                     {{ csrf_field() }}
                 </form>
                 <a class="js-modal-close" href="">閉じる</a>
             </div>
         </div>
-        <p class="button"><a class="btn-danger" href="/top/{{$post->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="/images/trash-h.png" width="50" height="50" alt="削除ボタン"></a></p>
-    </div>
-    @endforeach
 </div>
 
 @endsection

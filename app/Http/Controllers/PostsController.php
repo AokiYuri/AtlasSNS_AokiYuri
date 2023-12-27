@@ -31,18 +31,18 @@ class PostsController extends Controller
     public function update(Request $request)
     {
       // フォームから送られたデータの取得
-      $id = $request->input('post_id');
+      $id = $request->input('id');
       $posts = $request->input('post');
 
-      Post::where('post_id', $posts)->update([
+      Post::where('id', $id)->update([
         'post' => $posts]);
       return redirect('/top');
     }
 
     //投稿の削除処理をする
-    public function delete($posts)
+    public function delete($id)
     {
-        Post::where('id', $posts)->delete();
+        Post::where('id', $id)->delete();
         return redirect('/top');
     }
 }
