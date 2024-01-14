@@ -1,8 +1,10 @@
-@charset "utf-8";
+@charset "utf-8"
 
 html {}
 
-body {}
+body {
+    margin: 0;
+}
 
 /* header */
 header {
@@ -52,16 +54,64 @@ header {
     border-radius: 5px;
 }
 
+/* 投稿フォーム */
+.post_form form {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 3px solid #C0C0C0;
+}
+
+.post_form .form-control {
+    width: 700px;
+    border: none;
+    /* 任意の高さを指定 */
+}
+
+.post_item+.post_item {
+    margin-left: 10px;
+    /* post_itemの左側に余白を追加 */
+}
+
+.post_form .btn-success {
+    margin-left: auto;
+    /* 右寄せ */
+}
+
+/* ポスト一覧の表示 */
+.post_user {
+    display: inline-block;
+    vertical-align: middle;
+    /* ユーザー名を垂直方向に中央寄せ */
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.post_user img {
+    display: inline-block;
+    vertical-align: middle;
+    /* アイコンを垂直方向に中央寄せ */
+    margin-right: 5px;
+    /* アイコンとユーザー名の間に余白を追加 */
+}
+
+/* 編集・削除ボタン等 */
+.content {
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 3px solid #C0C0C0;
+}
+
+.button {
+    display: flex;
+    margin-right: 10px;
+}
+
 .btn-danger img {
     border-radius: 5px;
 }
 
-/*編集ボタン等 */
-.button {
-    margin: 0 auto;
-    padding: 40px;
-}
-
+/* モーダル */
 .modal {
     display: none;
     height: 100vh;
@@ -94,10 +144,25 @@ header {
 }
 
 #container {
-    flex: 0 0 80%;
+    max-width: 1300px;
+    /* コンテナの最大幅を指定 */
+    margin: 0 auto;
+    /* コンテナを中央寄せにする */
+    padding: 0 30px;
+    /* 画面左右に余白を追加 */
+    flex: 0 0 70%;
 }
 
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+}
+
+
+/* search画面 */
+.search_form {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 3px solid #C0C0C0;
 }
