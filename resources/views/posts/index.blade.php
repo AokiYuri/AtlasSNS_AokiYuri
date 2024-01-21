@@ -13,7 +13,7 @@
     @foreach($tweets as $tweet)
     <div>
         <p class="post_user"><img src="images/icon5.png"></p>
-        <p class="post_user">{{ Auth::user()->username }}</p>
+        <p class="post_user">{{ $tweet->user->username }}</p>
         <p class="post_content">{{ $tweet->post }}</p>
         <div class="content">
             <!-- 投稿の編集ボタン -->

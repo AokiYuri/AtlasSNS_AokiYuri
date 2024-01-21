@@ -27,15 +27,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    //フォロワー→フォロー
+    //フォローされている人
     public function followUsers()
     {
-        return $this->belongsToMany('App\User', 'follow_users', 'followed_id', 'following_id');
+        return $this->belongsToMany('App\Post', 'follows', 'followed_id', 'following_id');
     }
 
-    // フォロー→フォロワー
+    //フォローしている人
     public function follows()
     {
-        return $this->belongsToMany('App\User', 'follow_users', 'following_id', 'followed_id');
+        return $this->belongsToMany('App\Post', 'follows', 'following_id', 'followed_id');
     }
+
 }

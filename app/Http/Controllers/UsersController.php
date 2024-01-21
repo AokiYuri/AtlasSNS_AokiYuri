@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Follow;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -24,8 +25,9 @@ class UsersController extends Controller
         User::where('id', $id)->update([
             'username' => $username,
             'mail' => $mail,
-            'password' => Hash::make($request->password),
+            'password' => bcrypt($password),
             'bio' => $bio,
+            //'icon'
         ]);
 
         return redirect('/top');
@@ -33,28 +35,33 @@ class UsersController extends Controller
 
     //ユーザーリスト表示
     public function userList(Request $request){
-        $userLists = User::all();
+        //ログインユーザーを取得
+        $loginUser = Auth::user();
+        //ログインユーザーを除外してユーザーリストを取得
+        $userLists = User::whereNotIn('id', [$loginUser->id])->get();
         return view ('users.search', compact('userLists'));
     }
 
     //ユーザー検索
     public function search(Request $request){
         // 1つ目の処理
-        $username = $request->input('username');
+        $searchName = $request->input('username');
         // 2つ目の処理
-        if(!empty($username)){
-             $users = UsersController::where('username','like', '%'.$username.'%')->get();
+        if(!empty($searchName)){
+             $userLists = User::where('username','like', '%'.$searchName.'%')->get();
+        }
+        else{
+             $userLists = User::all();
         }
         // 3つ目の処理
-        return redirect('/search');
+        return view('users.search', compact('userLists','searchName'));
     }
 
     //フォロー機能
     public function follow(User $user) {
         $follow = Follow::create([
             'following_id' => \Auth::user()->id,
-            'followed_id' => $user->id,
-        ]);
+            'followed_id' => $user->id,]);
         $followCount = count(Follow::where('followed_id', $user->id)->get());
         return back();
     }
