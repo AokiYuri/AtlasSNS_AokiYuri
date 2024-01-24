@@ -18,7 +18,7 @@ class PostsController extends Controller
         // フォローしているユーザーのidを取得
         $following_id = Auth::user()->followUsers()->pluck('following_id');
         // フォローしているユーザーのidを元に投稿内容を取得
-        $tweets = Post::with('user')->whereIn('user_id', [$following_id,$user_id])->get();
+        $tweets = Post::with('user')->whereIn('user_id', $following_id->merge([$user_id]))->get();
         //フォローしてる人の数を取得→login.bladeはいろんな画面で使うから使えない
         //$follow = Follow::where('following_id', $user_id)->get();
 

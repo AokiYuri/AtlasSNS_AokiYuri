@@ -37,6 +37,7 @@ Route::get('/top','PostsController@index')->middleware('auth');
 Route::post('/top','PostsController@postCreate');
 
 Route::get('/profile','UsersController@profile')->middleware('auth');
+
 //プロフィールの更新機能
 Route::post('/profile','UsersController@updateProfile');
 
@@ -44,6 +45,7 @@ Route::get('/search','UsersController@userList')->middleware('auth');
 Route::post('/search','UsersController@search');
 
 Route::get('/follow-list','FollowsController@followList')->middleware('auth');
+
 Route::get('/follower-list','FollowsController@followerList')->middleware('auth');
 
 //postのdeleteメソッドを使用するためのルーティング
@@ -51,9 +53,6 @@ Route::get('/top/{id}/delete', 'PostsController@delete');
 
 //postのupdateメソッドを使用するためのルーティング
 Route::post('/top/update', 'PostsController@update');
-
-//profileのupdateメソッドを使用するためのルーティング
-Route::post('/profile/update', 'UsersController@updateProfile');
 
 //フォロー機能
 Route::post('/search/{user}/follow', 'UsersController@follow');

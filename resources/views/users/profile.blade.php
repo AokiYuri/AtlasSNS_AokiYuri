@@ -3,9 +3,13 @@
 @section('content')
 <div class='container'>
   <div class='profileUpdate'>
-    <form action="/profile" method="post">
+    <form action="/profile" method="post"  enctype="multipart/form-data">
     @csrf
-      <div><img src="images/icon5.png" alt="icon"></div>
+      <div><img src="{{ asset(Auth::user()->images) }}" alt="User Icon"></div>
+
+      <div class="profile-block">
+        <input type="hidden" name="id" value="{{ Auth::user()->id }}">
+      </div>
 
       <div class="profile-block">
         <p>user name</p>
@@ -34,7 +38,7 @@
 
       <div class="profile-block">
         <p>icon image</p>
-        {{ Form::text('icon_image',null,['class' => 'input']) }}
+        <input type="file" name="images">
       </div>
 
       <input type="submit" value="更新">

@@ -24,7 +24,7 @@
         <div id = "head">
           <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <nav class="accordion-container">
-                <div class="accordion-title js-accordion-title">{{ Auth::user()->username }}さん<span class="arrow"></span><img src="images/icon5.png"></div>
+                <div class="accordion-title js-accordion-title">{{ Auth::user()->username }}さん<span class="arrow"></span><img src="{{ asset(Auth::user()->images) }}" alt="User Icon"></div>
                 <ul class="accordion-content">
                   <li><a href="/top">ホーム</a></li>
                   <li><a href="/profile">プロフィール</a></li>

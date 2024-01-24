@@ -21,13 +21,16 @@ class UsersController extends Controller
         $mail = $request->input('mail');
         $password = $request->input('password');
         $bio = $request->input('bio');
+        //$images = $request->file('images');
+        $filename = $request->file('images')->getClientOriginalName();
+        $img = $request->file('images')->storeAs('public', $filename);
 
         User::where('id', $id)->update([
             'username' => $username,
             'mail' => $mail,
             'password' => bcrypt($password),
             'bio' => $bio,
-            //'icon'
+            'images' => $filename,
         ]);
 
         return redirect('/top');
@@ -39,7 +42,7 @@ class UsersController extends Controller
         $loginUser = Auth::user();
         //ログインユーザーを除外してユーザーリストを取得
         $userLists = User::whereNotIn('id', [$loginUser->id])->get();
-        return view ('users.search', compact('userLists'));
+        return view ('users.search', compact('userLists','loginUser'));
     }
 
     //ユーザー検索

@@ -12,7 +12,9 @@
 <div class="post_contents">
     @foreach($tweets as $tweet)
     <div>
-        <p class="post_user"><img src="images/icon5.png"></p>
+        <p class="post_user">
+            <img src="{{ asset('storage/images/'.Auth::user()->images) }}" alt="User Icon">
+        </p>
         <p class="post_user">{{ $tweet->user->username }}</p>
         <p class="post_content">{{ $tweet->post }}</p>
         <div class="content">
