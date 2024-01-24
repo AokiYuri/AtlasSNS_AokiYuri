@@ -166,3 +166,13 @@ header {
     padding: 20px 0;
     border-bottom: 3px solid #C0C0C0;
 }
+
+
+/* フォロー画面 */
+.container {
+    border-bottom: 3px solid #C0C0C0;
+}
+
+.follow_tweets {
+    border-bottom: 1px solid #C0C0C0;
+}

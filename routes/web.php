@@ -43,9 +43,9 @@ Route::post('/profile','UsersController@updateProfile');
 
 Route::get('/search','UsersController@userList')->middleware('auth');
 Route::post('/search','UsersController@search');
-
+//フォローリスト画面への遷移
 Route::get('/follow-list','FollowsController@followList')->middleware('auth');
-
+//フォロワーリスト画面への遷移
 Route::get('/follower-list','FollowsController@followerList')->middleware('auth');
 
 //postのdeleteメソッドを使用するためのルーティング

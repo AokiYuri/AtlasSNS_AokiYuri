@@ -23,14 +23,15 @@ class UsersController extends Controller
         $bio = $request->input('bio');
         //$images = $request->file('images');
         $filename = $request->file('images')->getClientOriginalName();
-        $img = $request->file('images')->storeAs('public', $filename);
+        $img = $request->file('images')->storeAs( 'public' , $filename);
+        //dd($img);
 
         User::where('id', $id)->update([
             'username' => $username,
             'mail' => $mail,
             'password' => bcrypt($password),
             'bio' => $bio,
-            'images' => $filename,
+            'images' => $img,
         ]);
 
         return redirect('/top');
