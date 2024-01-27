@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\User;
 use App\Follow;
 use Auth;
@@ -16,22 +17,43 @@ class UsersController extends Controller
 
     //プロフィール編集機能
     public function updateProfile(Request $request){
+
+        // バリデーションを設定する //
+        $request->validate([
+            'username' => 'required|min:2|max:12|',
+            'mail' =>
+              ['required',
+               'min:5',
+               'max:40',
+               Rule::unique('users', 'mail')->ignore(auth()->id()),
+               'email:filter,dns',
+               ],
+            'password' => 'required|alpha_num|min:8|max:20|confirmed|',
+            'bio' => 'max:150',
+            'images' => 'nullable|image|mimes:jpg,png,bmp,gif,svg|max:2048',
+        ]);
+
         $id = $request->input('id');
         $username = $request->input('username');
         $mail = $request->input('mail');
         $password = $request->input('password');
         $bio = $request->input('bio');
-        //$images = $request->file('images');
+
+         if ($request->hasFile('images')) {
         $filename = $request->file('images')->getClientOriginalName();
-        $img = $request->file('images')->storeAs( '' , $filename , 'public');
-        //dd($img);
+        $img = $request->file('images')->storeAs('', $filename, 'public');
+         } else {
+        // 画像がアップロードされない場合は元のアイコン画像のままにする
+        $img = auth()->user()->images;
+         }
 
         User::where('id', $id)->update([
             'username' => $username,
             'mail' => $mail,
             'password' => bcrypt($password),
             'bio' => $bio,
-            'images' => $img,
+            'images' => isset($img) ? $img : null,
+            // 画像がアップロードされていない場合はnullをセット
         ]);
 
         return redirect('/top');
