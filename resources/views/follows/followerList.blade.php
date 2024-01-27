@@ -3,7 +3,9 @@
 @section('content')
 <div class="container">
   <p class="listTitle">Follower List</p>
-  <p class="user_icon"></p>
+  <p class="user_icon">
+
+  </p>
 </div>
 
 <div class="post_contents">

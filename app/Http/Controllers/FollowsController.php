@@ -28,8 +28,9 @@ class FollowsController extends Controller
         $loginUser = Auth::user();
         //
         $followers = Auth::user()->followUsers()->pluck('following_id');
-        // フォロワーの投稿内容を取得
-        $tweets = Post::with('user')->whereIn('user_id', $followers->pluck('id'))->get();
+        // フォロワーのidを元に投稿内容を取得
+        $tweets = Post::with('user')->whereIn('user_id', $followers)->get();
+
         return view('follows.followerList', compact('loginUser', 'tweets', 'followers'));
     }
 
