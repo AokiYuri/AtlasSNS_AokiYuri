@@ -16,7 +16,7 @@
 
 <div>
 @foreach($userLists as $user)
-    <p class="user_icon"><img src="images/icon5.png"></p>
+    <p class="user_icon"><img src="{{ asset('storage/' . $user->images) }}" width="50" height="50"></p>
     <p class="user_list">{{ $user->username }}</p>
 
     @if($loginUser->follows->contains($user->id))
