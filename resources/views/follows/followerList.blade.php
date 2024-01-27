@@ -10,7 +10,7 @@
     @foreach($tweets as $tweet)
     <div class="follow_tweets">
         <p class="post_user">
-          <img src="{{ asset('storage/'.Auth::user()->images) }}" alt="User Icon">
+          <img src="{{ asset('storage/'.$tweet->user->images) }}" alt="User Icon" width="50" height="50">
         </p>
         <p class="post_user">{{ $tweet->user->username }}</p>
         <p class="post_content">{{ $tweet->post }}</p>

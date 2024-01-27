@@ -4,7 +4,9 @@
 <div class="post_form">
     <form action="/top" method="post">
         @csrf
-        <div class="post_item"><img src="images/icon5.png" alt="icon"></div>
+        <div class="user_icon">
+            <img src="{{ asset('storage/' .Auth::user()->images) }}" alt="User Icon" width="50" height="50">
+        </div>
         <div class="post_item">{{ Form::input('text', 'userPosts', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }}</div>
         <button type="submit" class="btn-success"><img src="/images/post.png" width="50" height="50" alt="投稿ボタン"></button>
     </form>
@@ -13,16 +15,18 @@
     @foreach($tweets as $tweet)
     <div>
         <p class="post_user">
-            <img src="{{ asset('storage/'.Auth::user()->images) }}" alt="User Icon">
+            <img src="{{ asset('storage/'.$tweet->user->images) }}" alt="User Icon" width="50" height="50">
         </p>
         <p class="post_user">{{ $tweet->user->username }}</p>
         <p class="post_content">{{ $tweet->post }}</p>
         <div class="content">
+             @if($tweet->user->id === Auth::user()->id)
             <!-- 投稿の編集ボタン -->
             <p class="button"><a class="js-modal-open" href="" post="{{ $tweet->post }}" post_id="{{ $tweet->id }}"><img src="/images/edit.png" width="50" height="50" alt="編集ボタン"></a></p>
 
             <!-- 投稿の削除ボタン -->
             <p class="button"><a class="btn-danger" href="/top/{{$tweet->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="/images/trash-h.png" width="50" height="50" alt="削除ボタン"></a></p>
+             @endif
         </div>
     </div>
     @endforeach
