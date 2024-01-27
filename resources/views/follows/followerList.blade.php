@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <p class="listTitle">Follow List</p>
+  <p class="listTitle">Follower List</p>
   <p class="user_icon"></p>
 </div>
 

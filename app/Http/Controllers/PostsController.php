@@ -7,19 +7,20 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Post;
 use App\Follow;
+use App\User;
 
 class PostsController extends Controller
 {
     //Postモデルから情報(レコード)を取得する
     public function index(){
         // Postモデル経由でpostsテーブルのレコードを取得
-        $tweets = Post::get();
         $user_id = Auth::user()->id ;
         // フォローしているユーザーのidを取得
-        $following_id = Auth::user()->followUsers()->pluck('following_id');
-        // フォローしているユーザーのidを元に投稿内容を取得
-        $tweets = Post::with('user')->whereIn('user_id', $following_id->merge([$user_id]))->get();
-        //フォローしてる人の数を取得→login.bladeはいろんな画面で使うから使えない
+        $followed_id = Auth::user()->follows()->pluck('followed_id')->toArray();
+        // ログインユーザー自身のIDも含めて、フォローしているユーザーの投稿内容を取得
+        $tweets = Post::whereIn('user_id', array_merge($followed_id, [$user_id]))->get();
+
+        // フォローしてる人の数を取得→login.bladeはいろんな画面で使うから使えない
         //$follow = Follow::where('following_id', $user_id)->get();
 
         return view('posts.index', compact('tweets'));

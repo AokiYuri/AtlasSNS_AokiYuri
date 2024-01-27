@@ -23,7 +23,7 @@ class UsersController extends Controller
         $bio = $request->input('bio');
         //$images = $request->file('images');
         $filename = $request->file('images')->getClientOriginalName();
-        $img = $request->file('images')->storeAs( 'public' , $filename);
+        $img = $request->file('images')->storeAs( '' , $filename , 'public');
         //dd($img);
 
         User::where('id', $id)->update([
@@ -43,13 +43,14 @@ class UsersController extends Controller
         $loginUser = Auth::user();
         //ログインユーザーを除外してユーザーリストを取得
         $userLists = User::whereNotIn('id', [$loginUser->id])->get();
-        return view ('users.search', compact('userLists','loginUser'));
+        return view ('users.search', compact('userLists', 'loginUser'));
     }
 
     //ユーザー検索
     public function search(Request $request){
         // 1つ目の処理
         $searchName = $request->input('username');
+        $loginUser = Auth::user();
         // 2つ目の処理
         if(!empty($searchName)){
              $userLists = User::where('username','like', '%'.$searchName.'%')->get();
@@ -58,7 +59,7 @@ class UsersController extends Controller
              $userLists = User::all();
         }
         // 3つ目の処理
-        return view('users.search', compact('userLists','searchName'));
+        return view('users.search', compact('userLists','searchName' , 'loginUser'));
     }
 
     //フォロー機能
