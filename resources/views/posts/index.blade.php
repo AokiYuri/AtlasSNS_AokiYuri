@@ -10,6 +10,10 @@
         <div class="post_item">{{ Form::input('text', 'userPosts', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }}</div>
         <button type="submit" class="btn-success"><img src="/images/post.png" width="50" height="50" alt="投稿ボタン"></button>
     </form>
+    <!-- バリデーションのエラー表示 -->
+    @foreach ($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
 </div>
 <div class="post_contents">
     @foreach($tweets as $tweet)

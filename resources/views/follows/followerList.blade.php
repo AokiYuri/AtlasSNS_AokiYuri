@@ -4,7 +4,14 @@
 <div class="container">
   <p class="listTitle">Follower List</p>
   <p class="user_icon">
-
+     @foreach($followers as $user_id)
+        @php
+            $user = App\User::find($user_id);
+        @endphp
+        @if($user)
+            <img src="{{ asset('storage/'.$user->images) }}" alt="User Icon" width="50" height="50">
+        @endif
+    @endforeach
   </p>
 </div>
 

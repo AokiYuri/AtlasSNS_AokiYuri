@@ -28,6 +28,10 @@ class PostsController extends Controller
 
     //投稿の登録処理をする
     public function postCreate(Request $request){
+        // バリデーションを設定する //
+        $request->validate([
+            'post' => 'max:150',
+        ]);
         //ユーザーが認証済みであることを確認し、認証されたユーザーのIDを取得、どのユーザーが投稿を作成したかが特定される。
         $user_id = Auth::user()->id ;
 
