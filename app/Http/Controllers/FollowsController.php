@@ -34,4 +34,6 @@ class FollowsController extends Controller
         return view('follows.followerList', compact('loginUser', 'tweets', 'followers'));
     }
 
+
+
 }

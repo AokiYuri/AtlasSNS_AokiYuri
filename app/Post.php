@@ -11,7 +11,7 @@ class Post extends Model
     ];
 
     public function Posts(){
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\User');
     }
 
     public function user()

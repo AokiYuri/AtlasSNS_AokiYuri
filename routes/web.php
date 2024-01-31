@@ -48,6 +48,9 @@ Route::get('/follow-list','FollowsController@followList')->middleware('auth');
 //フォロワーリスト画面への遷移
 Route::get('/follower-list','FollowsController@followerList')->middleware('auth');
 
+//
+Route::get('/otherProfile/{user_id}','UsersController@others')->name('user.profile');
+
 //postのdeleteメソッドを使用するためのルーティング
 Route::get('/top/{id}/delete', 'PostsController@delete');
 

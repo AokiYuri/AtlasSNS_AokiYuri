@@ -28,17 +28,17 @@ class PostsController extends Controller
 
     //投稿の登録処理をする
     public function postCreate(Request $request){
-        // バリデーションを設定する //
+        // バリデーションを設定する
         $request->validate([
             'post' => 'max:150',
         ]);
-        //ユーザーが認証済みであることを確認し、認証されたユーザーのIDを取得、どのユーザーが投稿を作成したかが特定される。
+        //ユーザーが認証済みであることを確認し、認証されたユーザーのIDを取得、どのユーザーが投稿を作成したかが特定される
         $user_id = Auth::user()->id ;
 
-        //フォームから送信されたリクエストから userPosts という名前の入力フィールドの値を取得している。この値は、新しい投稿の内容を表す。
+        //フォームから送信されたリクエストから userPosts という名前の入力フィールドの値を取得している。この値は、新しい投稿の内容を表す
         $posts = $request->input('userPosts');
 
-        //Post::create() メソッドを使用して、新しい投稿をデータベースに保存している。'user_id' にはユーザーのIDが、'post' には投稿の内容がセットされ、これによりpostsテーブルに新しいレコードが追加される。
+        //Post::create() メソッドを使用して、新しい投稿をデータベースに保存している。'user_id' にはユーザーのIDが、'post' には投稿の内容がセットされ、これによりpostsテーブルに新しいレコードが追加される
         Post::create([
             'user_id' => $user_id,
             'post' => $posts]);

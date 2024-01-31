@@ -27,6 +27,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function Posts(){
+        return $this->hasMany(Post::class);
+    }
+
     //フォローされている人
     public function followUsers()
     {

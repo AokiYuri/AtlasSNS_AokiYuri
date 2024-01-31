@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\User;
+use App\Post;
 use App\Follow;
 use Auth;
 
@@ -100,6 +101,24 @@ class UsersController extends Controller
         $followCount = count(Follow::where('followed_id', $user->id)->get());
 
         return back();
+    }
+
+
+    public function others($user_id) {
+        // 選択したユーザーのプロフィール情報を取得
+        $profileUser = User::with('posts')->find($user_id);
+
+        // ログインユーザーを取得
+        $loginUser = Auth::user();
+
+        // ログインユーザーがフォローしているかどうかの判定
+        $following_user = Auth::user()->follows()->pluck('followed_id');
+
+        // ユーザーの投稿内容を取得
+        $tweets = Post::with('user')->where('user_id', $user_id)->get();
+
+        // ビューにデータを渡す
+        return view('otherProfile', compact('profileUser', 'loginUser', 'tweets'));
     }
 
 }

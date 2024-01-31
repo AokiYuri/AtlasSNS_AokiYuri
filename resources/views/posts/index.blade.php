@@ -22,6 +22,7 @@
             <img src="{{ asset('storage/'.$tweet->user->images) }}" alt="User Icon" width="50" height="50">
         </p>
         <p class="post_user">{{ $tweet->user->username }}</p>
+        <p class="post_time">{{ $tweet->created_at->format('Y-m-d H:i') }}</p>
         <p class="post_content">{{ $tweet->post }}</p>
         <div class="content">
              @if($tweet->user->id === Auth::user()->id)
