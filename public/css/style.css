@@ -64,11 +64,16 @@ header {
 
 .post_form .form-control {
     width: 700px;
+    height: 50px;
     border: none;
     /* 任意の高さを指定 */
 }
 
-.post_item+.post_item {
+.post_form textarea {
+    white-space: pre-line;
+}
+
+.post_item.post_item {
     margin-left: 10px;
     /* post_itemの左側に余白を追加 */
 }
@@ -79,10 +84,12 @@ header {
 }
 
 /* ポスト一覧の表示 */
+.post {
+    border-bottom: 1.5px solid #C0C0C0;
+}
+
 .post_user {
     display: inline-block;
-    vertical-align: middle;
-    /* ユーザー名を垂直方向に中央寄せ */
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -95,15 +102,23 @@ header {
     /* アイコンとユーザー名の間に余白を追加 */
 }
 
-/* 編集・削除ボタン等 */
-.content {
+.name {
+    display: inline-block;
+    margin-right: 600px;
+    /* ユーザー名と時間の間に余白を追加 */
+}
+
+.post_content {
+    padding-left: 55px;
+}
+
+/* 投稿の編集・削除ボタン等 */
+.post_button {
     display: flex;
-    padding: 20px 0;
-    border-bottom: 3px solid #C0C0C0;
+    padding: 20px 0 0 750px;
 }
 
 .button {
-    display: flex;
     margin-right: 10px;
 }
 
@@ -164,6 +179,28 @@ header {
     align-items: center;
     padding: 20px 0;
     border-bottom: 3px solid #C0C0C0;
+}
+
+.search_top {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.user_icon {
+    margin-left: 100px;
+    margin-right: 15px;
+}
+
+.user_name {
+    margin-right: 15px;
+    /* ユーザー名とボタンの間隔 */
+}
+
+.btn-follow,
+.btn-unfollow {
+    margin-left: auto;
+    /* ボタンとユーザー名の間隔 */
 }
 
 

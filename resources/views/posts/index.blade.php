@@ -7,7 +7,7 @@
         <div class="user_icon">
             <img src="{{ asset('storage/' .Auth::user()->images) }}" alt="User Icon" width="50" height="50">
         </div>
-        <div class="post_item">{{ Form::input('text', 'userPosts', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }}</div>
+        <div class="post_item">{{ Form::textarea('userPosts', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }}</div>
         <button type="submit" class="btn-success"><img src="/images/post.png" width="50" height="50" alt="投稿ボタン"></button>
     </form>
     <!-- バリデーションのエラー表示 -->
@@ -17,14 +17,14 @@
 </div>
 <div class="post_contents">
     @foreach($tweets as $tweet)
-    <div>
+    <div class="post">
         <p class="post_user">
             <img src="{{ asset('storage/'.$tweet->user->images) }}" alt="User Icon" width="50" height="50">
         </p>
-        <p class="post_user">{{ $tweet->user->username }}</p>
-        <p class="post_time">{{ $tweet->created_at->format('Y-m-d H:i') }}</p>
-        <p class="post_content">{{ $tweet->post }}</p>
-        <div class="content">
+        <p class="post_user name">{{ $tweet->user->username }}</p>
+        <p class="post_user time">{{ $tweet->created_at->format('Y-m-d H:i') }}</p>
+        <p class="post_content">{!! nl2br(e($tweet->post)) !!}</p>
+        <div class="post_button">
              @if($tweet->user->id === Auth::user()->id)
             <!-- 投稿の編集ボタン -->
             <p class="button"><a class="js-modal-open" href="" post="{{ $tweet->post }}" post_id="{{ $tweet->id }}"><img src="/images/edit.png" width="50" height="50" alt="編集ボタン"></a></p>

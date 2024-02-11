@@ -15,9 +15,10 @@
 </div>
 
 <div>
-@foreach($userLists as $user)
+  @foreach($userLists as $user)
+  <div class="search_top">
     <p class="user_icon"><img src="{{ asset('storage/' . $user->images) }}" width="50" height="50"></p>
-    <p class="user_list">{{ $user->username }}</p>
+    <p class="user_name">{{ $user->username }}</p>
 
     @if($loginUser->follows->contains($user->id))
         {{-- ログインユーザーがフォローしている場合 --}}
@@ -32,7 +33,8 @@
         <button type="submit" class="btn-follow">フォローする</button>
         </form>
      @endif
-@endforeach
+  </div>
+  @endforeach
 </div>
 
 @endsection
