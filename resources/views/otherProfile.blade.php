@@ -9,7 +9,6 @@
     <p class="other_profileName">{{ $profileUser->username }}</p>
   <p class="other_profile">bio</p>
     <p class="other_profileName">{{ $profileUser->bio }}</p>
-
      @if($loginUser->follows->contains($profileUser->id))
         {{-- ログインユーザーがフォローしている場合 --}}
         <form  action="/search/{{$profileUser->id}}/unfollow" method="post">
@@ -23,6 +22,7 @@
         <button type="submit" class="btn-follow">フォローする</button>
         </form>
      @endif
+</div>
 
 </div>
     <div class="post_contents">
