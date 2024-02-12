@@ -73,58 +73,57 @@ header {
 
 /* ------------------TOPページ---------------- */
 /* 投稿フォーム */
-.post_form form {
-    display: flex;
-    align-items: center;
-    padding: 20px 0;
+.post_form {
+    padding: 2% 5%;
     border-bottom: 3px solid #C0C0C0;
 }
 
-.post_form .form-control {
+.do_tweets {
+    display: flex;
+    align-items: center;
+}
+
+.post_form form {
+    height: auto;
+}
+
+.form_control {
+    margin-left: 10px;
     width: 70%;
     height: 50px;
     border: none;
-    /* 任意の高さを指定 */
+    align-items: center;
 }
 
-.post_form textarea {
-    white-space: pre-line;
+.post_form .btn-success {
+    padding: 0 0 0 750px;
 }
-
-.post_item.post_item {
-    margin-left: 10px;
-    /* post_itemの左側に余白を追加 */
-}
-
-.post_form .btn-success {}
 
 /* ポスト一覧の表示 */
-.post {
-    border-bottom: 1.5px solid #C0C0C0;
+.user_tweets {
+    padding: 2% 8%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #C0C0C0;
 }
 
-.post_user {
-    display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 10px;
+.post_title {
+    display: flex;
 }
 
-.post_user img {
-    display: inline-block;
-    vertical-align: middle;
-    /* アイコンを垂直方向に中央寄せ */
-    margin-right: 5px;
-    /* アイコンとユーザー名の間に余白を追加 */
+.user_post_time {
+    margin-left: auto;
+    margin-right: 4%;
 }
 
-.name {
-    display: inline-block;
-    margin-right: 600px;
-    /* ユーザー名と時間の間に余白を追加 */
+.post_block {
+    padding-left: 2%;
+    flex-grow: 1;
+    /* 残りのスペースを占有し、横幅を伸ばす */
 }
 
-.post_content {
-    padding-left: 55px;
+.user_post_content {
+    padding-top: 2%;
 }
 
 /* 投稿の編集・削除ボタン等 */
@@ -226,6 +225,7 @@ header {
 }
 
 /* -----------フォローフォロワーリスト------------ */
+/* 投稿一覧はTOPと同じ */
 .user_container {
     padding: 2% 6%;
     display: flex;
@@ -240,54 +240,68 @@ header {
     padding: 0 40px;
 }
 
-/* 投稿一覧 */
-.user_tweets {
-    padding: 2% 8%;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #C0C0C0;
-}
-
-.post_title {
-    display: flex;
-}
-
-.user_post_time {
-    margin-left: auto;
-    margin-right: 4%;
-}
-
-.post_block {
-    padding-left: 2%;
-    flex-grow: 1;
-    /* 残りのスペースを占有し、横幅を伸ばす */
-}
-
-.user_post_content {
-    padding-top: 2%;
-}
-
 /* ------------ユーザープロフィール------------- */
 .profile_container {
     padding: 5% 8%;
 }
 
-.profile_block {
-    padding-bottom: 5%;
-    display: -webkit-flex;
+.profile_update {
     display: flex;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
+}
+
+.profile_block {
+    display: flex;
+    margin: 4% 2%;
+}
+
+.profile_blocks {
+    flex-grow: 1;
+}
+
+.user_profiles {
+    margin-left: auto;
+    margin-right: 15%;
+    width: 40%;
 }
 
 .button2 {
-    margin: auto;
+    margin-left: 35%;
     background-color: red;
     color: white;
-    padding: 8px 40px;
+    padding: 6px 40px;
     /* パディングの値は適宜変更してください */
     border: none;
     border-radius: 5px;
     /* 角丸にする場合は適宜変更してください */
     cursor: pointer;
+}
+
+/* ------------アザープロフィール------------- */
+.otherProfile_container {
+    display: flex;
+    padding: 5% 8%;
+    border-bottom: 3px solid #C0C0C0;
+}
+
+.other_name {
+    display: flex;
+    margin-bottom: 5%;
+}
+
+.other_bio {
+    display: flex;
+}
+
+.otherProfile {
+    flex-grow: 1;
+    margin-left: 1%;
+}
+
+.other_profileName {
+    margin-left: auto;
+    margin-right: 40%;
+}
+
+.follow_btn2 {
+    padding-top: 5%;
 }

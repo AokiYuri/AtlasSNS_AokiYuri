@@ -4,11 +4,13 @@
 <div class="post_form">
     <form action="/top" method="post">
         @csrf
-        <div class="user_icon">
+        <div class="do_tweets">
+          <div class="tweet_user_icon">
             <img src="{{ asset('storage/' .Auth::user()->images) }}" alt="User Icon" width="50" height="50">
+          </div>
+          {{ Form::textarea('userPosts', null, ['required', 'class' => 'form_control', 'placeholder' => '投稿内容を入力してください。']) }}
         </div>
-        <div class="post_item">{{ Form::textarea('userPosts', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }}</div>
-        <button type="submit" class="btn-success"><img src="/images/post.png" width="50" height="50" alt="投稿ボタン"></button>
+        <button type="submit" class="btn-success"><img src="/images/post.png" width="40" height="40" alt="投稿ボタン"></button>
     </form>
     <!-- バリデーションのエラー表示 -->
     @foreach ($errors->all() as $error)
@@ -17,21 +19,25 @@
 </div>
 <div class="post_contents">
     @foreach($tweets as $tweet)
-    <div class="post">
-        <p class="post_user">
+    <div class="user_tweets">
+        <p class="user_post">
             <img src="{{ asset('storage/'.$tweet->user->images) }}" alt="User Icon" width="50" height="50">
         </p>
-        <p class="post_user name">{{ $tweet->user->username }}</p>
-        <p class="post_user time">{{ $tweet->created_at->format('Y-m-d H:i') }}</p>
-        <p class="post_content">{!! nl2br(e($tweet->post)) !!}</p>
-        <div class="post_button">
+        <div class="post_block">
+          <div class="post_title">
+            <p class="user_post_name">{{ $tweet->user->username }}</p>
+            <p class="user_post_time">{{ $tweet->created_at->format('Y-m-d H:i') }}</p>
+          </div>
+          <p class="user_post_content">{!! nl2br(e($tweet->post)) !!}</p>
+          <div class="post_button">
              @if($tweet->user->id === Auth::user()->id)
             <!-- 投稿の編集ボタン -->
-            <p class="button"><a class="js-modal-open" href="" post="{{ $tweet->post }}" post_id="{{ $tweet->id }}"><img src="/images/edit.png" width="50" height="50" alt="編集ボタン"></a></p>
+            <p class="button"><a class="js-modal-open" href="" post="{{ $tweet->post }}" post_id="{{ $tweet->id }}"><img src="/images/edit.png" width="40" height="40" alt="編集ボタン"></a></p>
 
             <!-- 投稿の削除ボタン -->
-            <p class="button"><a class="btn-danger" href="/top/{{$tweet->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="/images/trash-h.png" width="50" height="50" alt="削除ボタン"></a></p>
+            <p class="button"><a class="btn-danger" href="/top/{{$tweet->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="/images/trash-h.png" width="40" height="40" alt="削除ボタン"></a></p>
              @endif
+          </div>
         </div>
     </div>
     @endforeach
