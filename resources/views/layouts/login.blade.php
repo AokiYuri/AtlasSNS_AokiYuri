@@ -22,7 +22,7 @@
 <body>
     <header>
         <div id = "head">
-          <h1><a href="/top"><img src="images/atlas.png" width="100" height="70"></a></h1>
+          <h1><a href="/top"><img src="{{ asset('storage/atlas.png') }}" width="100" height="70"></a></h1>
             <nav class="accordion-container">
                 <div class="accordion-title js-accordion-title">{{ Auth::user()->username }}さん<span class="arrow"></span><img src="{{ asset('storage/' .Auth::user()->images) }}" alt="User Icon" width="50" height="50"></div>
                 <ul class="accordion-content">

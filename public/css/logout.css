@@ -1,14 +1,12 @@
 @charset "UTF-8";
 
-html {
-    height: 100%;
-}
+html {}
 
 body {
+    padding: 16% 0;
     color: white;
-    background: linear-gradient(0deg, #d9db58 10%, #186AC9 50%);
+    background: linear-gradient(0deg, #d9db58 15%, #2f80de 55%);
     text-align: center;
-    height: 100px;
     margin: 0 auto;
 }
 
@@ -16,12 +14,108 @@ header {
     font-size: 25px;
 }
 
+.titles {
+    padding-bottom: 50px;
+}
+
+.clear {
+    margin-bottom: 40px;
+}
+
+.clear p {
+    margin-bottom: 15px;
+    font-weight: bolder;
+}
+
+.comment {
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.comment p {
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.box {
+    border: #000 2px solid;
+    /*境界線の指定*/
+    width: 200px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.box2 {
+    border: #000 2px solid;
+    /*境界線の指定*/
+    width: 260px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
 .title {
     padding-bottom: 20px;
 }
 
-label,
-input {
+.login_form {
+    margin-bottom: 20px;
+}
+
+.button {
+    margin-left: 100px;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    /* パディングの値は適宜変更してください */
+    border: none;
+    border-radius: 5px;
+    /* 角丸にする場合は適宜変更してください */
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.button2 {
+    margin-bottom: 20px;
+}
+
+.button2 a {
+    margin: auto;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    /* パディングの値は適宜変更してください */
+    border: none;
+    border-radius: 5px;
+    /* 角丸にする場合は適宜変更してください */
+    cursor: pointer;
+}
+
+label {
+    float: left;
+}
+
+input.input {
     display: block;
     margin: auto;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+.creat a {
+    color: white;
+}
+
+input[type="password" i] {
+    display: block;
+    margin: auto;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
 }

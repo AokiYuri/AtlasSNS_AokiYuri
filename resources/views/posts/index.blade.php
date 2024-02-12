@@ -36,9 +36,9 @@
     </div>
     @endforeach
     <!-- モーダルの中身 -->
-    <div class="modal js-modal">
-        <div class="modal__bg js-modal-close"></div>
-        <div class="modal__content">
+    <div class="modal">
+        <div class="modal_bg js-modal-close"></div>
+        <div class="modal_content">
             <form action="/top/update" method="post">
                 <textarea name="post" class="modal_post"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="">
