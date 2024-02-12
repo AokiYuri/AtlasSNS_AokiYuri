@@ -20,15 +20,16 @@
 <div class="post_contents">
     @foreach($tweets as $tweet)
     <div class="user_tweets">
-      <div class="post_titles">
         <p class="user_post">
           <img src="{{ asset('storage/'.$tweet->user->images) }}" alt="User Icon" width="50" height="50">
         </p>
-        <p class="user_post_name">{{ $tweet->user->username }}</p>
-        <p class="user_post_time">{{ $tweet->created_at->format('Y-m-d H:i') }}</p>
+      <div class="post_block">
+        <div class="post_title">
+          <p class="user_post_name">{{ $tweet->user->username }}</p>
+          <p class="user_post_time">{{ $tweet->created_at->format('Y-m-d H:i') }}</p>
+        </div>
+        <p class="user_post_content">{{ $tweet->post }}</p>
       </div>
-      <p class="user_post_content">{{ $tweet->post }}</p>
-
     </div>
     @endforeach
 </div>

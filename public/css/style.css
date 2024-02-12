@@ -242,16 +242,14 @@ header {
 
 /* 投稿一覧 */
 .user_tweets {
+    padding: 2% 8%;
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid #C0C0C0;
 }
 
-.post_titles {
-    display: -webkit-flex;
+.post_title {
     display: flex;
-    -webkit-justify-content: flex-start;
-    justify-content: flex-start;
-    padding-top: 2%;
-    padding-left: 6%;
 }
 
 .user_post_time {
@@ -259,9 +257,14 @@ header {
     margin-right: 4%;
 }
 
+.post_block {
+    padding-left: 2%;
+    flex-grow: 1;
+    /* 残りのスペースを占有し、横幅を伸ばす */
+}
+
 .user_post_content {
-    margin-left: 15%;
-    padding-bottom: 10px;
+    padding-top: 2%;
 }
 
 /* ------------ユーザープロフィール------------- */
