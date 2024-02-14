@@ -103,7 +103,6 @@ class UsersController extends Controller
         return back();
     }
 
-
     public function others($user_id) {
         // 選択したユーザーのプロフィール情報を取得
         $profileUser = User::with('posts')->find($user_id);
@@ -115,7 +114,7 @@ class UsersController extends Controller
         $following_user = Auth::user()->follows()->pluck('followed_id');
 
         // ユーザーの投稿内容を取得
-        $tweets = Post::with('user')->where('user_id', $user_id)->get();
+        $tweets = Post::with('user')->where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
 
         // ビューにデータを渡す
         return view('otherProfile', compact('profileUser', 'loginUser', 'tweets'));

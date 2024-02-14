@@ -45,15 +45,6 @@ header {
     border-top: 20px solid #fff;
 }
 
-.btn-success {
-    border: none;
-    background: transparent;
-}
-
-.btn-success img {
-    border-radius: 5px;
-}
-
 /* main content */
 #row {
     display: flex;
@@ -66,10 +57,82 @@ header {
     flex: 0 0 80%;
 }
 
+/* side-bar */
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+    font-size: 15px;
 }
+
+#confirm {
+    margin: 4% 3%;
+    margin-bottom: 10%;
+}
+
+.side_name {
+    margin-bottom: 20px;
+}
+
+.side_follow {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.side_follower {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.count {
+    width: 40%;
+    padding: 0 10px;
+}
+
+.howmany {
+    margin-left: 15px;
+}
+
+.btn {
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.btn a {
+    color: white;
+    background-color: #186AC9;
+    font-size: 13px;
+    padding: 5px 10px;
+    /* 上下左右の余白を均等に指定 */
+    display: inline-block;
+    /* ボタンをブロック要素として表示 */
+    min-width: 100px;
+    /* ボタンの最小横幅を指定 */
+    text-align: center;
+    /* ボタン内のテキストを中央揃えにする */
+    border: none;
+    border-radius: 5px;
+    /* 角丸 */
+}
+
+.side_search {
+    border-top: 1px solid #C0C0C0;
+}
+
+.side_search_btn {
+    text-align: center;
+    margin-top: 20%;
+}
+
+.side_search_btn a {
+    color: white;
+    background-color: #186AC9;
+    font-size: small;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    /* 角丸 */
+}
+
 
 /* ------------------TOPページ---------------- */
 /* 投稿フォーム */
@@ -92,11 +155,20 @@ header {
     width: 70%;
     height: 50px;
     border: none;
-    align-items: center;
+    resize: none;
 }
 
 .post_form .btn-success {
     padding: 0 0 0 750px;
+}
+
+.btn-success {
+    border: none;
+    background: transparent;
+}
+
+.btn-success img {
+    border-radius: 5px;
 }
 
 /* ポスト一覧の表示 */
@@ -129,7 +201,7 @@ header {
 /* 投稿の編集・削除ボタン等 */
 .post_button {
     display: flex;
-    padding: 20px 0 0 750px;
+    justify-content: flex-end;
 }
 
 .button {
@@ -138,6 +210,10 @@ header {
 
 .btn-danger img {
     border-radius: 5px;
+}
+
+.btn-danger:hover img {
+    content: url('/images/trash-h.png');
 }
 
 /* モーダル */
@@ -149,24 +225,44 @@ header {
     width: 100%;
 }
 
-.modal_bg {
+.modal__bg {
     background: rgba(0, 0, 0, 0.8);
     height: 100vh;
     position: absolute;
     width: 100%;
 }
 
-.modal_content {
+.modal__content {
     background: #fff;
     left: 50%;
     padding: 40px;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
+    width: 50%;
+    border-radius: 15px;
+    text-align: center;
 }
 
-/* --------------ユーザー検索ページ------------- */
+.modal_post {
+    height: 150px;
+    width: 600px;
+    resize: none;
+}
+
+.post_update_btn {
+    background: url('/images/edit.png') no-repeat;
+    background-size: contain;
+    /* 画像をボタンに合わせて拡大縮小する */
+    width: 50px;
+    height: 50px;
+    border: none;
+    display: inline-block;
+    margin-top: 3%;
+}
+
+
+/* --------------search------------- */
 /* 検索フォーム */
 .search_form {
     padding: 4% 8%;
@@ -240,7 +336,7 @@ header {
     padding: 0 40px;
 }
 
-/* ------------ユーザープロフィール------------- */
+/* ------------profile------------- */
 .profile_container {
     padding: 5% 8%;
 }
@@ -252,6 +348,7 @@ header {
 .profile_block {
     display: flex;
     margin: 4% 2%;
+    align-items: center;
 }
 
 .profile_blocks {
@@ -260,8 +357,33 @@ header {
 
 .user_profiles {
     margin-left: auto;
-    margin-right: 15%;
+    margin-right: 20%;
     width: 40%;
+}
+
+input.user_profiles {
+    height: 20px;
+}
+
+.icon_change {
+    border: 1px solid #000;
+    margin-left: auto;
+    margin-right: 20%;
+    width: 40%;
+    height: 100px;
+}
+
+.user_profiles_icon {
+    display: inline-block;
+    position: relative;
+}
+
+.user_profiles_icon label {
+    padding: 15px;
+    background-color: #186AC9;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .button2 {
@@ -276,11 +398,15 @@ header {
     cursor: pointer;
 }
 
-/* ------------アザープロフィール------------- */
+/* ------------otherProfile------------ */
 .otherProfile_container {
     display: flex;
-    padding: 5% 8%;
+    padding: 3% 8%;
     border-bottom: 3px solid #C0C0C0;
+}
+
+.other_profile {
+    width: 20%;
 }
 
 .other_name {
@@ -298,8 +424,7 @@ header {
 }
 
 .other_profileName {
-    margin-left: auto;
-    margin-right: 40%;
+    margin-left: 10%;
 }
 
 .follow_btn2 {

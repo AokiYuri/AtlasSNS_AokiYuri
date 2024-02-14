@@ -39,19 +39,21 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>{{ Auth::user()->username }}さんの</p>
-                <div>
-                <p>フォロー数</p>
-                <p>{{ Auth::user()->follows->count() }}名</p>
+                <p class="side_name">{{ Auth::user()->username }}さんの</p>
+                <div class="side_follow">
+                  <p class="count">フォロー数</p>
+                  <p class="howmany">{{ Auth::user()->follows->count() }}名</p>
                 </div>
                 <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-                <div>
-                <p>フォロワー数</p>
-                <p>{{ Auth::user()->followUsers->count() }}名</p>
+                <div class="side_follower">
+                  <p class="count">フォロワー数</p>
+                  <p class="howmany">{{ Auth::user()->followUsers->count() }}名</p>
                 </div>
                 <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <div class="side_search">
+                <p class="side_search_btn"><a href="/search">ユーザー検索</a></p>
+            </div>
         </div>
     </div>
     <footer>

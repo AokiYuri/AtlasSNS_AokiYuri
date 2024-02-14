@@ -37,9 +37,11 @@
 
         <div class="profile_block">
           <p>icon image</p>
-          <input class="user_profiles" type="file" name="images">
+          <div class="icon_change">
+            <label for="user_profiles_icon">ファイルを選択</label>
+            <input id="user_profiles_icon" type="file" name="images">
+          </div>
         </div>
-
         <input class="button2" type="submit" value="更新">
       </div>
     </div>
