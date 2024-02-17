@@ -15,13 +15,29 @@ header {
     display: flex;
 }
 
+#head a {
+    margin: 2% 2%;
+}
+
 .accordion-container {
-    margin: 0 0 0 auto;
+    display: flex;
+    margin: 2% 2% 2% auto;
     color: #fff;
+    align-items: center;
+}
+
+.accordion-icon {
+    margin: 1% 2%;
 }
 
 .accordion-content {
-    display: none;
+    position: absolute;
+    right: 0;
+    transition: .35s ease-in-out;
+}
+
+.accordion-title {
+    align-items: center;
 }
 
 /* 矢印 */
@@ -38,11 +54,11 @@ header {
 }
 
 .open .arrow {
-    position: relative;
     top: 40px;
     /* 適宜調整 */
     border-bottom: none;
     border-top: 20px solid #fff;
+
 }
 
 /* main content */
@@ -175,7 +191,6 @@ header {
 .user_tweets {
     padding: 2% 8%;
     display: flex;
-    align-items: center;
     border-bottom: 1px solid #C0C0C0;
 }
 
@@ -279,6 +294,11 @@ header {
     width: 35%;
 }
 
+.searchWord {
+    margin-left: 15%;
+    line-height: 35px;
+}
+
 /* ユーザー一覧 */
 .search_top {
     display: -webkit-flex;
@@ -345,6 +365,10 @@ header {
     display: flex;
 }
 
+.profile_icon {
+    margin-top: 2%;
+}
+
 .profile_block {
     display: flex;
     margin: 4% 2%;
@@ -366,24 +390,35 @@ input.user_profiles {
 }
 
 .icon_change {
+    display: flex;
+    justify-content: center;
+    /* 横方向中央配置 */
+    align-items: center;
+    /* 縦方向中央配置 */
     border: 1px solid #000;
     margin-left: auto;
     margin-right: 20%;
     width: 40%;
     height: 100px;
-}
-
-.user_profiles_icon {
-    display: inline-block;
-    position: relative;
+    overflow: hidden;
+    /* ボーダーがはみ出ないようにするために必要 */
 }
 
 .user_profiles_icon label {
     padding: 15px;
-    background-color: #186AC9;
+    background-color: #000;
+    /* 任意の背景色 */
     color: white;
     cursor: pointer;
     border-radius: 5px;
+    margin: 10px;
+    /* 余白の指定 */
+}
+
+#user_profiles_icon {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
 }
 
 .button2 {

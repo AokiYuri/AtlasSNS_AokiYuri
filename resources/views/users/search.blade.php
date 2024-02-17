@@ -7,13 +7,14 @@
       <div class="search_name">
         <input type="text" name="username" class="form" placeholder=" ユーザー名">
         <button type="submit" class="btn-success"><img src="images/search.png"  width="35" height="35" ></button>
+      <!-- 検索ワードの表示 -->
+        @if (!empty($searchName))
+        <p class="searchWord">検索ワード: {{ $searchName }}</p>
+        @endif
       </div>
     </form>
 
-    <!-- 検索ワードの表示 -->
-    @if (!empty($searchName))
-      <p class="searchWord">検索ワード: {{ $searchName }}</p>
-    @endif
+
 </div>
 
 <div>

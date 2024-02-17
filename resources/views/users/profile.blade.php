@@ -5,7 +5,7 @@
   <form action="/profile" method="post"  enctype="multipart/form-data">
     @csrf
     <div class='profile_update'>
-      <div><img src="{{ asset('storage/' .Auth::user()->images) }}" alt="User Icon" width="50" height="50"></div>
+      <div class="profile_icon"><img src="{{ asset('storage/' .Auth::user()->images) }}" alt="User Icon" width="50" height="50"></div>
       <div class="profile_block">
         <input type="hidden" name="id" value="{{ Auth::user()->id }}">
       </div>

@@ -51,7 +51,7 @@ class PostsController extends Controller
     public function update(Request $request){
       // バリデーションを設定する
         $request->validate([
-            'post' => 'max:150',
+            'post' => 'min:1|max:150',
         ]);
 
       // フォームから送られたデータの取得

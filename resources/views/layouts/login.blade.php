@@ -20,19 +20,32 @@
     <!--OGPタグ/twitterカード-->
 </head>
 <body>
-    <header>
-        <div id = "head">
-          <h1><a href="/top"><img src="{{ asset('storage/atlas.png') }}" width="100" height="70"></a></h1>
-            <nav class="accordion-container">
-                <div class="accordion-title js-accordion-title">{{ Auth::user()->username }}さん<span class="arrow"></span><img src="{{ asset('storage/' .Auth::user()->images) }}" alt="User Icon" width="50" height="50"></div>
-                <ul class="accordion-content">
-                  <li><a href="/top">ホーム</a></li>
-                  <li><a href="/profile">プロフィール</a></li>
-                  <li><a href="/logout">ログアウト</a></li>
-                </ul>
-            </nav>
+<header>
+    <div id="header">
+      <div id="head">
+        <a href="/top">
+          <img src="{{ asset('storage/atlas.png') }}" width="95" height="35">
+        </a>
+        <nav class="accordion-container">
+          <div class="hearder-title">
+              {{ Auth::user()->username }}さん
+          </div>
+          <div class="accordion-title js-accordion-title">
+              <span class="arrow"></span>
+          </div>
+        </nav>
+        <div class="accordion-icon">
+          <img src="{{ asset('storage/' .Auth::user()->images) }}" alt="User Icon" width="50" height="50">
         </div>
-    </header>
+      </div>
+      <ul class="accordion-content">
+        <li><a href="/top">ホーム</a></li>
+        <li><a href="/profile">プロフィール</a></li>
+        <li><a href="/logout">ログアウト</a></li>
+      </ul>
+    </div>
+</header>
+
     <div id="row">
         <div id="container">
             @yield('content')
