@@ -28,7 +28,7 @@
         </a>
         <nav class="accordion-container">
           <div class="hearder-title">
-              {{ Auth::user()->username }}さん
+              {{ Auth::user()->username }}　さん
           </div>
           <div class="accordion-title js-accordion-title">
               <span class="arrow"></span>
@@ -39,9 +39,9 @@
         </div>
       </div>
       <ul class="accordion-content">
-        <li><a href="/top">ホーム</a></li>
-        <li><a href="/profile">プロフィール</a></li>
-        <li><a href="/logout">ログアウト</a></li>
+        <li class="content-titles"><a href="/top">HOME</a></li>
+        <li class="content-titles"><a href="/profile">プロフィール編集</a></li>
+        <li class="content-titles"><a href="/logout">ログアウト</a></li>
       </ul>
     </div>
 </header>

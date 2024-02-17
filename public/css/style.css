@@ -16,7 +16,7 @@ header {
 }
 
 #head a {
-    margin: 2% 2%;
+    margin: 1.5% 2%;
 }
 
 .accordion-container {
@@ -26,18 +26,49 @@ header {
     align-items: center;
 }
 
+.accordion-title {
+    align-items: center;
+}
+
 .accordion-icon {
-    margin: 1% 2%;
+    margin: 1% 2% 1% 0;
 }
 
 .accordion-content {
     position: absolute;
     right: 0;
     transition: .35s ease-in-out;
+    width: 20%;
+    height: 30%;
+    border: 2px solid #010066;
+    font-size: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    /* 垂直方向に配置 */
 }
 
-.accordion-title {
+.content-titles {
+    flex: 1;
+    /* 均等に高さを分配 */
+    text-align: center;
+    padding: 0;
+}
+
+.content-titles a {
+    display: flex;
     align-items: center;
+    /* 垂直方向に中央揃え */
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #727272;
+    text-decoration: none;
+}
+
+.content-titles a:hover {
+    background-color: #010066;
+    color: white;
 }
 
 /* 矢印 */
@@ -48,14 +79,12 @@ header {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 20px solid #fff;
-    /* 矢印の色 */
-    margin: 20px;
-    /* 適宜調整 */
+    margin-left: 20px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .open .arrow {
-    top: 40px;
-    /* 適宜調整 */
     border-bottom: none;
     border-top: 20px solid #fff;
 
@@ -69,7 +98,6 @@ header {
 
 #container {
     width: 100%;
-    /* コンテナの最大幅を指定 */
     flex: 0 0 80%;
 }
 
@@ -118,13 +146,9 @@ header {
     background-color: #186AC9;
     font-size: 13px;
     padding: 5px 10px;
-    /* 上下左右の余白を均等に指定 */
     display: inline-block;
-    /* ボタンをブロック要素として表示 */
     min-width: 100px;
-    /* ボタンの最小横幅を指定 */
     text-align: center;
-    /* ボタン内のテキストを中央揃えにする */
     border: none;
     border-radius: 5px;
     /* 角丸 */
@@ -407,12 +431,10 @@ input.user_profiles {
 .user_profiles_icon label {
     padding: 15px;
     background-color: #000;
-    /* 任意の背景色 */
     color: white;
     cursor: pointer;
     border-radius: 5px;
     margin: 10px;
-    /* 余白の指定 */
 }
 
 #user_profiles_icon {
@@ -426,10 +448,9 @@ input.user_profiles {
     background-color: red;
     color: white;
     padding: 6px 40px;
-    /* パディングの値は適宜変更してください */
     border: none;
     border-radius: 5px;
-    /* 角丸にする場合は適宜変更してください */
+    /* 角丸*/
     cursor: pointer;
 }
 
