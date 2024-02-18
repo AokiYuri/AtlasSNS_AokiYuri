@@ -118,6 +118,17 @@ return [
     'url'                  => ':attributeは、有効なURL形式で指定してください。',
     'uuid'                 => ':attributeは、有効なUUIDでなければなりません。',
 
+    'attributes' => [
+    'username' => 'ユーザー名',
+    'mail' => 'メールアドレス',
+    'password' => 'パスワード',
+    'bio' => '自己紹介文',
+    'images' => 'ユーザーアイコン',
+    'post' => '投稿内容',
+    'userPosts' => '投稿内容',
+    ],
+
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

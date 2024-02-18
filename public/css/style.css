@@ -425,6 +425,9 @@ input.user_profiles {
     height: 100px;
     overflow: hidden;
     /* ボーダーがはみ出ないようにするために必要 */
+    border-radius: 2px;
+    /* 角丸 */
+    border-color: #727272;
 }
 
 .user_profiles_icon label {
@@ -434,6 +437,7 @@ input.user_profiles {
     cursor: pointer;
     border-radius: 5px;
     margin: 10px;
+
 }
 
 #user_profiles_icon {
