@@ -78,16 +78,15 @@ header {
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 20px solid #fff;
+    border-top: 20px solid #fff;
     margin-left: 20px;
     display: inline-block;
     vertical-align: middle;
 }
 
 .open .arrow {
-    border-bottom: none;
-    border-top: 20px solid #fff;
-
+    border-top: none;
+    border-bottom: 20px solid #fff;
 }
 
 /* main content */
