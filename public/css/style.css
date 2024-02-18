@@ -99,12 +99,13 @@ header {
 #container {
     width: 100%;
     flex: 0 0 80%;
+    border-right: 1px solid #727272;
 }
 
 /* side-bar */
 #side-bar {
     flex: 0 0 19%;
-    border-left: 1px solid #727272;
+    height: 100vh;
     font-size: 15px;
 }
 
